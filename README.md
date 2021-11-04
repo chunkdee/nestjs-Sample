@@ -33,11 +33,11 @@ $ npm run test:cov
 
 ## Note
 
-Paga Collect package is installed in this sample app.
+Paga Collect package is installed already.
 
-I have created a folder for Paga in SRC folder and referenced the paga collect library from within  paga.service.ts file.
+I have created a folder for Paga in SRC folder and referenced the paga collect library from within paga.service.ts file.
 
-The App would start only if you comment out the paga code referecnce
-   //private readonly pagaCollect: any = require('paga-collect'); 
+The App would start only if you comment out the paga code reference(line 8) in paga.service.ts file
+
 
 
