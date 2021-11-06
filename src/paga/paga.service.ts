@@ -5,7 +5,7 @@ import { UpdatePagaDto } from './dto/update-paga.dto';
 @Injectable()
 export class PagaService {
 
-  //private readonly pagaCollect: any = require('paga-collect');
+  private readonly pagaCollect: any = require('paga-collect');
 
   create(createPagaDto: CreatePagaDto) {
     return 'This action adds a new paga';

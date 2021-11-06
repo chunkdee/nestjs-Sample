@@ -6,16 +6,20 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const options = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
+    .setTitle('OctoSoft')
+    .setDescription('OctosSoft API')
     .setVersion('1.0')
-    .addTag('cats')
+    .addTag('octosoft')
     .build();
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('api/v2', app, document);
 
-  await app.listen(3000);
+  await app.listen(4000);
   console.log(`Application is running on: ${await app.getUrl()}`);
   
 }
 bootstrap();
+
+
+
+
