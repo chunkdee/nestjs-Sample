@@ -8,7 +8,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
@@ -18,25 +18,47 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./apps/orange-app/test/jest-e2e.json",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js" 
   },
   "dependencies": {
+    "@casl/ability": "^5.4.3",
+    "@hapi/joi": "^17.1.1",
     "@nestjs/common": "7.3.2",
+    "@nestjs/config": "^1.1.0",
     "@nestjs/core": "7.3.2",
+    "@nestjs/jwt": "^8.0.0",
+    "@nestjs/mapped-types": "^1.0.0",
+    "@nestjs/passport": "^8.0.1",
     "@nestjs/platform-express": "7.0.0",
-    
-    "paga-collect": "1.1.6",
-    "reflect-metadata": "0.1.13",
     "@nestjs/swagger": "4.5.12",
+    "@nestjs/typeorm": "^8.0.2",
+    "@nestjsx/crud": "^5.0.0-alpha.3",
+    "@nestjsx/crud-typeorm": "^5.0.0-alpha.3",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/hapi__joi": "^17.1.7",
+    "@types/passport-jwt": "^3.0.6",
+    "@types/passport-local": "^1.0.34",
+    "class-transformer": "^0.3.1",
+    "class-validator": "^0.13.1",
+    "cookie-parser": "^1.4.5",
+    "joi": "^17.4.2",
+    "paga-collect": "1.1.6",
+    "passport": "^0.5.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.7.1",
+    "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
-    "rxjs": "6.5.4",
-    "swagger-ui-express": "4.1.4"
+    "rxjs": "^7.4.0",
+    "swagger-ui-express": "4.1.4",
+    "typeorm": "^0.2.38"
   },
   "devDependencies": {
-    "@nestjs/cli": "7.0.0",
-    "@nestjs/schematics": "7.0.0",
+    "@nestjs/cli": "^8.1.4",
+    "@nestjs/schematics": "^8.0.4",
     "@nestjs/testing": "^7.0.0",
-    "@types/express": "^4.17.3",
+    "@types/express": "^4.17.13",
     "@types/jest": "25.2.3",
     "@types/node": "^13.9.1",
     "@types/supertest": "^2.0.8",
@@ -60,12 +82,15 @@
       "json",
       "ts"
     ],
-    "rootDir": "src",
+    "rootDir": ".",
     "testRegex": ".spec.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "coverageDirectory": "./coverage",
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/apps/"
+    ]
   }
 }

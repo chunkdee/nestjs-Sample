@@ -1,4 +1,30 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "sourceRoot": "apps/orange-app/src",
+  "monorepo": true,
+  "root": "apps/orange-app",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/orange-app/tsconfig.app.json"
+  },
+  "projects": {
+    "orange-app": {
+      "type": "application",
+      "root": "apps/orange-app",
+      "entryFile": "main",
+      "sourceRoot": "apps/orange-app/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/orange-app/tsconfig.app.json"
+      }
+    },
+    "orange-fe2": {
+      "type": "application",
+      "root": "apps/orange-fe2",
+      "entryFile": "main",
+      "sourceRoot": "apps/orange-fe2/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/orange-fe2/tsconfig.app.json"
+      }
+    }
+  }
 }
